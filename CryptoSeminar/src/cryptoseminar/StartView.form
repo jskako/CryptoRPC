@@ -96,16 +96,121 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPane1" min="-2" pref="491" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="chainworkLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="chainwork" pref="359" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="previousHash" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="heightLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="markleRootLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="sizeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="prvHash" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="heightVar" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="markleRoot" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="size" max="32767" attributes="0"/>
+                                      <Component id="version" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="difficultyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="hashLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="nextHashLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="hash" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="nextHash" max="32767" attributes="0"/>
+                                      <Component id="difficulty" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="bitsLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                              <Component id="bits" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="confirmationsLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="confirmations" min="-2" pref="360" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" pref="438" max="32767" attributes="0"/>
-                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="bitsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bits" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chainworkLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chainwork" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="confirmationsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="confirmations" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="difficultyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="difficulty" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="hashLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="hash" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nextHashLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nextHash" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="previousHash" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="prvHash" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="heightLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="heightVar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="markleRootLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="markleRoot" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="sizeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="size" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="version" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -131,21 +236,83 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea1">
-                  <Properties>
-                    <Property name="columns" type="int" value="20"/>
-                    <Property name="rows" type="int" value="5"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
+            <Component class="javax.swing.JLabel" name="bitsLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Bits"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="chainworkLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Chainwork"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="confirmationsLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Confirmations"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="difficultyLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Difficulty"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="hashLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hash"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="nextHashLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Next hash"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="previousHash">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Previous hash"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="heightLbl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Height"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="markleRootLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Markle root"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="sizeLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Size"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Version"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="bits">
+            </Component>
+            <Component class="javax.swing.JTextField" name="chainwork">
+            </Component>
+            <Component class="javax.swing.JTextField" name="confirmations">
+            </Component>
+            <Component class="javax.swing.JTextField" name="difficulty">
+            </Component>
+            <Component class="javax.swing.JTextField" name="hash">
+            </Component>
+            <Component class="javax.swing.JTextField" name="nextHash">
+            </Component>
+            <Component class="javax.swing.JTextField" name="prvHash">
+            </Component>
+            <Component class="javax.swing.JTextField" name="heightVar">
+            </Component>
+            <Component class="javax.swing.JTextField" name="markleRoot">
+            </Component>
+            <Component class="javax.swing.JTextField" name="size">
+            </Component>
+            <Component class="javax.swing.JTextField" name="version">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="welcomePane">
@@ -174,7 +341,7 @@
                               <Component id="depthTextField" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="searchButton" min="-2" pref="82" max="-2" attributes="0"/>
-                              <EmptySpace pref="26" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="blockchainWelcome" min="-2" max="-2" attributes="0"/>
@@ -283,6 +450,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="heightTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="613866"/>
+              </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="heightTextFieldKeyTyped"/>
               </Events>

@@ -5,10 +5,16 @@
  */
 package cryptoseminar;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import java.awt.event.KeyEvent;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
@@ -41,8 +47,8 @@ public class StartView extends javax.swing.JFrame {
     ExecuteScriptsOnDatabase CALIzb = new ExecuteScriptsOnDatabase();
     ArrayList<String> dataList = new ArrayList<String>();
     String rowClicked;
-    int rowClickedInt;
-
+    Block myBlock;
+    
     public StartView(Connection Conn, String Username) {
         this.conn = Conn;
         this.username = Username;
@@ -51,7 +57,7 @@ public class StartView extends javax.swing.JFrame {
         spajanjeRPC();
         AddActionListener();
     }
-
+    
     private void spajanjeRPC() {
         try {
             connection = "http://" + user + ':' + password + "@" + host + ":" + port + "/";
@@ -61,7 +67,7 @@ public class StartView extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-
+    
     private void postaviUser() {
         String ime = "";
         String prezime = "";
@@ -77,7 +83,7 @@ public class StartView extends javax.swing.JFrame {
         }
         welcomeLabelText.setText("Welcome " + ime + " " + prezime + "  ( " + username + " )");
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -87,8 +93,28 @@ public class StartView extends javax.swing.JFrame {
         blockExplorerPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         hashTable = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        bitsLabel = new javax.swing.JLabel();
+        chainworkLabel = new javax.swing.JLabel();
+        confirmationsLabel = new javax.swing.JLabel();
+        difficultyLabel = new javax.swing.JLabel();
+        hashLabel = new javax.swing.JLabel();
+        nextHashLabel = new javax.swing.JLabel();
+        previousHash = new javax.swing.JLabel();
+        heightLbl = new javax.swing.JLabel();
+        markleRootLabel = new javax.swing.JLabel();
+        sizeLabel = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        bits = new javax.swing.JTextField();
+        chainwork = new javax.swing.JTextField();
+        confirmations = new javax.swing.JTextField();
+        difficulty = new javax.swing.JTextField();
+        hash = new javax.swing.JTextField();
+        nextHash = new javax.swing.JTextField();
+        prvHash = new javax.swing.JTextField();
+        heightVar = new javax.swing.JTextField();
+        markleRoot = new javax.swing.JTextField();
+        size = new javax.swing.JTextField();
+        version = new javax.swing.JTextField();
         welcomePane = new javax.swing.JPanel();
         blockchainWelcome = new javax.swing.JLabel();
         exitLabel = new javax.swing.JLabel();
@@ -140,9 +166,27 @@ public class StartView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(hashTable);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        bitsLabel.setText("Bits");
+
+        chainworkLabel.setText("Chainwork");
+
+        confirmationsLabel.setText("Confirmations");
+
+        difficultyLabel.setText("Difficulty");
+
+        hashLabel.setText("Hash");
+
+        nextHashLabel.setText("Next hash");
+
+        previousHash.setText("Previous hash");
+
+        heightLbl.setText("Height");
+
+        markleRootLabel.setText("Markle root");
+
+        sizeLabel.setText("Size");
+
+        jLabel11.setText("Version");
 
         javax.swing.GroupLayout blockExplorerPanelLayout = new javax.swing.GroupLayout(blockExplorerPanel);
         blockExplorerPanel.setLayout(blockExplorerPanelLayout);
@@ -150,14 +194,96 @@ public class StartView extends javax.swing.JFrame {
             blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(blockExplorerPanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2)
-                .addGap(1, 1, 1))
+                .addGap(18, 18, 18)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(blockExplorerPanelLayout.createSequentialGroup()
+                            .addComponent(chainworkLabel)
+                            .addGap(35, 35, 35)
+                            .addComponent(chainwork, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE))
+                        .addGroup(blockExplorerPanelLayout.createSequentialGroup()
+                            .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(previousHash)
+                                .addComponent(heightLbl)
+                                .addComponent(markleRootLabel)
+                                .addComponent(sizeLabel)
+                                .addComponent(jLabel11))
+                            .addGap(18, 18, 18)
+                            .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(prvHash)
+                                .addComponent(heightVar)
+                                .addComponent(markleRoot)
+                                .addComponent(size)
+                                .addComponent(version)))
+                        .addGroup(blockExplorerPanelLayout.createSequentialGroup()
+                            .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(difficultyLabel)
+                                .addComponent(hashLabel)
+                                .addComponent(nextHashLabel))
+                            .addGap(36, 36, 36)
+                            .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(hash, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(nextHash)
+                                .addComponent(difficulty))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, blockExplorerPanelLayout.createSequentialGroup()
+                        .addComponent(bitsLabel)
+                        .addGap(68, 68, 68)
+                        .addComponent(bits))
+                    .addGroup(blockExplorerPanelLayout.createSequentialGroup()
+                        .addComponent(confirmationsLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(confirmations, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         blockExplorerPanelLayout.setVerticalGroup(
             blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-            .addComponent(jScrollPane2)
+            .addGroup(blockExplorerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bitsLabel)
+                    .addComponent(bits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chainworkLabel)
+                    .addComponent(chainwork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confirmationsLabel)
+                    .addComponent(confirmations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(difficultyLabel)
+                    .addComponent(difficulty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hashLabel)
+                    .addComponent(hash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nextHashLabel)
+                    .addComponent(nextHash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(previousHash)
+                    .addComponent(prvHash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(heightLbl)
+                    .addComponent(heightVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(markleRootLabel)
+                    .addComponent(markleRoot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sizeLabel)
+                    .addComponent(size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(version, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         welcomePane.setBackground(new java.awt.Color(232, 232, 232));
@@ -193,6 +319,7 @@ public class StartView extends javax.swing.JFrame {
         blockchainTextLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         blockchainTextLabel.setText("Blockchain Explorer History");
 
+        heightTextField.setText("613866");
         heightTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 heightTextFieldKeyTyped(evt);
@@ -238,7 +365,7 @@ public class StartView extends javax.swing.JFrame {
                         .addComponent(depthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(26, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(welcomePaneLayout.createSequentialGroup()
                         .addComponent(blockchainWelcome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -330,7 +457,7 @@ public class StartView extends javax.swing.JFrame {
                 //Očisti listu
                 DefaultTableModel model = (DefaultTableModel) hashTable.getModel();
                 model.setRowCount(0);
-                Block myBlock = client.getBlock(Integer.parseInt(heightTextField.getText().trim()));
+                myBlock = client.getBlock(Integer.parseInt(heightTextField.getText().trim()));
                 dataList.add(myBlock.hash());
                 int tmp = Integer.parseInt(depthTextField.getText().trim());
                 while (tmp > 0) {
@@ -349,7 +476,7 @@ public class StartView extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_searchButtonActionPerformed
-
+    
     private void ispisListe(DefaultTableModel model) {
         for (int i = 0; i < dataList.size(); i++) {
             String index = dataList.get(i);
@@ -365,7 +492,7 @@ public class StartView extends javax.swing.JFrame {
     private void depthTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_depthTextFieldKeyTyped
         ZabraniSlova(evt);
     }//GEN-LAST:event_depthTextFieldKeyTyped
-
+    
     public void ZabraniBrojeve(java.awt.event.KeyEvent evt) {
         char vChar = evt.getKeyChar();
         if ((Character.isDigit(vChar)
@@ -374,7 +501,7 @@ public class StartView extends javax.swing.JFrame {
             evt.consume();
         }
     }
-
+    
     public void ZabraniSlova(java.awt.event.KeyEvent evt) {
         char vChar = evt.getKeyChar();
         if ((!Character.isDigit(vChar)
@@ -397,29 +524,64 @@ public class StartView extends javax.swing.JFrame {
                 }
                 System.out.println(rowClicked);
                 if (!rowClicked.trim().equals("")) {
-                    //Ovdje zovemo ukoliko postoji HASH u tablici
+                    try {
+                        myBlock = client.getBlock(rowClicked);
+                        bits.setText(myBlock.bits());
+                        chainwork.setText(myBlock.chainwork());
+                        confirmations.setText(Integer.toString(myBlock.confirmations()));
+                        difficulty.setText(String.valueOf(myBlock.difficulty()));
+                        hash.setText(myBlock.hash());
+                        nextHash.setText(myBlock.nextHash());
+                        prvHash.setText(myBlock.previousHash());
+                        heightVar.setText(Integer.toString(myBlock.height()));
+                        markleRoot.setText(myBlock.merkleRoot());
+                        size.setText(Integer.toString(myBlock.size()));
+                        version.setText(Integer.toString(myBlock.version()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField bits;
+    private javax.swing.JLabel bitsLabel;
     private javax.swing.JPanel blockExplorerPanel;
     private javax.swing.JLabel blockchainTextLabel;
     private javax.swing.JLabel blockchainWelcome;
+    private javax.swing.JTextField chainwork;
+    private javax.swing.JLabel chainworkLabel;
+    private javax.swing.JTextField confirmations;
+    private javax.swing.JLabel confirmationsLabel;
     private javax.swing.JLabel depthLabel;
     private javax.swing.JTextField depthTextField;
+    private javax.swing.JTextField difficulty;
+    private javax.swing.JLabel difficultyLabel;
     private javax.swing.JLabel exitLabel;
+    private javax.swing.JTextField hash;
+    private javax.swing.JLabel hashLabel;
     private javax.swing.JTable hashTable;
     private javax.swing.JLabel heightLabel;
+    private javax.swing.JLabel heightLbl;
     private javax.swing.JTextField heightTextField;
+    private javax.swing.JTextField heightVar;
     private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField markleRoot;
+    private javax.swing.JLabel markleRootLabel;
+    private javax.swing.JTextField nextHash;
+    private javax.swing.JLabel nextHashLabel;
     private javax.swing.JButton passwordChangeButton;
+    private javax.swing.JLabel previousHash;
+    private javax.swing.JTextField prvHash;
     private javax.swing.JButton searchButton;
+    private javax.swing.JTextField size;
+    private javax.swing.JLabel sizeLabel;
+    private javax.swing.JTextField version;
     private javax.swing.JLabel welcomeLabelText;
     private javax.swing.JPanel welcomePane;
     // End of variables declaration//GEN-END:variables
