@@ -5,16 +5,13 @@
  */
 package cryptoseminar;
 
-import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.net.URL;
 import java.util.ArrayList;
-import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
 import wf.bitcoin.javabitcoindrpcclient.BitcoinJSONRPCClient;
 import wf.bitcoin.javabitcoindrpcclient.BitcoindRpcClient.Block;
 
@@ -43,6 +40,8 @@ public class StartView extends javax.swing.JFrame {
     ResultSet RS = null;
     ExecuteScriptsOnDatabase CALIzb = new ExecuteScriptsOnDatabase();
     ArrayList<String> dataList = new ArrayList<String>();
+    String rowClicked;
+    int rowClickedInt;
 
     public StartView(Connection Conn, String Username) {
         this.conn = Conn;
@@ -50,6 +49,7 @@ public class StartView extends javax.swing.JFrame {
         initComponents();
         postaviUser();
         spajanjeRPC();
+        AddActionListener();
     }
 
     private void spajanjeRPC() {
@@ -87,6 +87,8 @@ public class StartView extends javax.swing.JFrame {
         blockExplorerPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         hashTable = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         welcomePane = new javax.swing.JPanel();
         blockchainWelcome = new javax.swing.JLabel();
         exitLabel = new javax.swing.JLabel();
@@ -115,10 +117,11 @@ public class StartView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(232, 232, 232));
 
         blockExplorerPanel.setBackground(new java.awt.Color(209, 209, 209));
 
+        hashTable.setBackground(new java.awt.Color(232, 232, 232));
         hashTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null}
@@ -137,17 +140,24 @@ public class StartView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(hashTable);
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout blockExplorerPanelLayout = new javax.swing.GroupLayout(blockExplorerPanel);
         blockExplorerPanel.setLayout(blockExplorerPanelLayout);
         blockExplorerPanelLayout.setHorizontalGroup(
             blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(blockExplorerPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2)
+                .addGap(1, 1, 1))
         );
         blockExplorerPanelLayout.setVerticalGroup(
             blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
         );
 
         welcomePane.setBackground(new java.awt.Color(232, 232, 232));
@@ -373,6 +383,25 @@ public class StartView extends javax.swing.JFrame {
             evt.consume();
         }
     }
+    
+    private void AddActionListener() {
+        hashTable.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
+            if (!event.getValueIsAdjusting()) {
+                //Get row to int
+                try {
+                    if (hashTable.getValueAt(hashTable.getSelectedRow(), 0).toString() != null) {
+                        rowClicked = hashTable.getValueAt(hashTable.getSelectedRow(), 0).toString();
+                    }
+                } catch (NullPointerException e) {
+                    System.out.println("NULL");
+                }
+                System.out.println(rowClicked);
+                if (!rowClicked.trim().equals("")) {
+                    //Ovdje zovemo ukoliko postoji HASH u tablici
+                }
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel blockExplorerPanel;
@@ -387,6 +416,8 @@ public class StartView extends javax.swing.JFrame {
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton passwordChangeButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JLabel welcomeLabelText;
