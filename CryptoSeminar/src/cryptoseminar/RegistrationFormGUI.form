@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="com.toedter.calendar.JMonthChooser" name="jMonthChooser1">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="name" type="java.lang.String" value="formRegistration" noResource="true"/>
+    <Property name="undecorated" type="boolean" value="true"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="52" green="4c" red="42" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="txt_BrTel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="txt_BrTel" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="txt_BrTel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="a7" green="7e" red="0" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="2"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="praznaLinija" alignment="0" max="32767" attributes="0"/>
+                  <Component id="praznaLinijaN" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="avatarLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
+                              <Component id="exitLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="adresaLabel" min="-2" pref="58" max="-2" attributes="0"/>
+                                          <Component id="adresa" min="-2" pref="322" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="posBrojLabel" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="postanskiBroj" min="-2" pref="359" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="korisnickoImeLabel" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="imeLabel" min="-2" pref="322" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="prezimeLabel" min="-2" pref="361" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="korisnickoIme" min="-2" pref="322" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="brojacZnakovaUser" min="-2" pref="25" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="maxBrojacZnakovaUser" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="userFoundLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                              <Component id="userNotFoundLabel" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="godinaRod" max="32767" attributes="0"/>
+                                                  <Component id="godRodLabel" pref="149" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="danRodLabel" max="32767" attributes="0"/>
+                                                  <Component id="danRod" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="mjRod" pref="92" max="32767" attributes="0"/>
+                                                  <Component id="mjesecRodLabel" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="agreemLabelOne" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="agreemLabelZero" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="sifra" min="-2" pref="322" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="passwordCheckLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="ponSifra" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="ime" max="32767" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="sifraLabel" pref="322" max="32767" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="ponovljenaSifraLabel" max="32767" attributes="0"/>
+                                                  <Component id="prezime" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="drzLabel" alignment="0" pref="322" max="32767" attributes="0"/>
+                                          <Component id="mailLabel" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="mail" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="brojTelLabel" pref="361" max="32767" attributes="0"/>
+                                                  <Component id="gradRodLabel" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="areaCode" min="-2" pref="97" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="telefon" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="drzava" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="gradRodenja" min="-2" pref="361" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
+                              <Component id="agreemLabelTwo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="agreeCheckBox" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
+                              <Component id="registrirajButton" min="-2" pref="147" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="registrationLabel" min="-2" pref="721" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="exitLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="avatarLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="registrationLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="praznaLinija" min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="korisnickoImeLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="brojacZnakovaUser" min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="userFoundLabel" alignment="1" max="32767" attributes="0"/>
+                          <Component id="korisnickoIme" alignment="0" max="32767" attributes="0"/>
+                          <Component id="maxBrojacZnakovaUser" alignment="0" max="32767" attributes="0"/>
+                          <Component id="userNotFoundLabel" alignment="1" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="imeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="prezimeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="prezime" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="ime" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="sifraLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ponovljenaSifraLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="sifra" alignment="1" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="ponSifra" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="passwordCheckLabel" alignment="1" min="-2" pref="42" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="mailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="brojTelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="telefon" linkSize="2" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="mail" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="areaCode" linkSize="2" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="drzLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="gradRodLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="gradRodenja" pref="42" max="32767" attributes="0"/>
+                          <Component id="drzava" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="adresaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="posBrojLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="postanskiBroj" pref="42" max="32767" attributes="0"/>
+                          <Component id="adresa" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="godRodLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="mjesecRodLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="danRodLabel" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="godinaRod" max="32767" attributes="0"/>
+                          <Component id="danRod" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="mjRod" min="-2" pref="42" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="praznaLinijaN" min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="agreemLabelZero" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="agreemLabelOne" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="agreemLabelTwo" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="agreeCheckBox" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="registrirajButton" min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JTextField" name="korisnickoIme">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="example"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="korisnickoImeFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="korisnickoImeFocusLost"/>
+                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="korisnickoImePropertyChange"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="korisnickoImeKeyPressed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="korisnickoImeLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="3"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="KORISNI&#x10c;KO IME"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="ime">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="example"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="imeFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="imeFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="imeKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="prezime">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="example"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="prezimeFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="prezimeFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="prezimeKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="imeLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="IME"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="prezimeLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="PREZIME"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="sifraLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="&#x160;IFRA"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ponovljenaSifraLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="PONOVLJENA &#x160;IFRA"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="mailLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="MAIL"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="godRodLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="GODINA RO&#x110;ENJA"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="gradRodLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="GRAD"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="drzLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="DR&#x17d;AVA"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="adresaLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="ADRESA"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="posBrojLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="PO&#x160;TANSKI BROJ"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="brojTelLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="BROJ TELEFONA"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="sifra">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="mytestpassword"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sifraFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sifraFocusLost"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="ponSifra">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="mytestpassword"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ponSifraFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ponSifraFocusLost"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="mail">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="example@example.com"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="mailFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="mailFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="mailKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="telefon">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="111111111"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="telefonFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="telefonFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefonActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="telefonKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="gradRodenja">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="example"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="gradRodenjaFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="gradRodenjaFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="gradRodenjaKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="adresa">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="example"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="adresaFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="adresaFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="adresaKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="postanskiBroj">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="11111"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="postanskiBrojFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="postanskiBrojFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="postanskiBrojKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="praznaLinija">
+            </Component>
+            <Component class="javax.swing.JLabel" name="avatarLabel">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Slike/user_registration.png"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="registrationLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="36" style="3"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="REGISTRATION"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="praznaLinijaN">
+            </Component>
+            <Component class="javax.swing.JLabel" name="brojacZnakovaUser">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="20"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="maxBrojacZnakovaUser">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="/ 20"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JYearChooser" name="godinaRod">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="godinaRodFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="godinaRodKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="mjesecRodLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="MJESEC RO&#x110;ENJA"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="danRodLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="DAN RO&#x110;ENJA"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="danRod">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="31">
+                    <StringItem index="0" value="1"/>
+                    <StringItem index="1" value="2"/>
+                    <StringItem index="2" value="3"/>
+                    <StringItem index="3" value="4"/>
+                    <StringItem index="4" value="5"/>
+                    <StringItem index="5" value="6"/>
+                    <StringItem index="6" value="7"/>
+                    <StringItem index="7" value="8"/>
+                    <StringItem index="8" value="9"/>
+                    <StringItem index="9" value="10"/>
+                    <StringItem index="10" value="11"/>
+                    <StringItem index="11" value="12"/>
+                    <StringItem index="12" value="13"/>
+                    <StringItem index="13" value="14"/>
+                    <StringItem index="14" value="15"/>
+                    <StringItem index="15" value="16"/>
+                    <StringItem index="16" value="17"/>
+                    <StringItem index="17" value="18"/>
+                    <StringItem index="18" value="19"/>
+                    <StringItem index="19" value="20"/>
+                    <StringItem index="20" value="21"/>
+                    <StringItem index="21" value="22"/>
+                    <StringItem index="22" value="23"/>
+                    <StringItem index="23" value="24"/>
+                    <StringItem index="24" value="25"/>
+                    <StringItem index="25" value="26"/>
+                    <StringItem index="26" value="27"/>
+                    <StringItem index="27" value="28"/>
+                    <StringItem index="28" value="29"/>
+                    <StringItem index="29" value="30"/>
+                    <StringItem index="30" value="31"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="agreemLabelZero">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="2"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Kori&#x161;tenjem ove aplikacije potvr&#x111;ujete da ste stariji od 18 godina, "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="agreemLabelOne">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="odnosno da imate dovoljno godina za kupnju i prodaju kriptovalute u dr&#x17e;avi iz koje pristupate na&#x161;oj stranici"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="agreemLabelTwo">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="2"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Sla&#x17e;em se te se &#x17e;elim registrirati:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="agreeCheckBox">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="a7" green="7e" red="0" type="rgb"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agreeCheckBoxActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="mjRod">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="12">
+                    <StringItem index="0" value="1"/>
+                    <StringItem index="1" value="2"/>
+                    <StringItem index="2" value="3"/>
+                    <StringItem index="3" value="4"/>
+                    <StringItem index="4" value="5"/>
+                    <StringItem index="5" value="6"/>
+                    <StringItem index="6" value="7"/>
+                    <StringItem index="7" value="8"/>
+                    <StringItem index="8" value="9"/>
+                    <StringItem index="9" value="10"/>
+                    <StringItem index="10" value="11"/>
+                    <StringItem index="11" value="12"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="exitLabel">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Slike/rsz_exit.png"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitLabelMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="userFoundLabel">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Slike/notvaild.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="userNotFoundLabel">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Slike/vaild.png"/>
+                </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Default Cursor"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="passwordCheckLabel">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Slike/notvaild.png"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="registrirajButton">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="a7" green="7e" red="0" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="2"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Registriraj se"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registrirajButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="drzava">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="197">
+                    <StringItem index="0" value="Afghanistan"/>
+                    <StringItem index="1" value="Albania"/>
+                    <StringItem index="2" value="Algeria"/>
+                    <StringItem index="3" value="Andorra"/>
+                    <StringItem index="4" value="Angola"/>
+                    <StringItem index="5" value="Antigua &amp; Deps"/>
+                    <StringItem index="6" value="Argentina"/>
+                    <StringItem index="7" value="Armenia"/>
+                    <StringItem index="8" value="Australia"/>
+                    <StringItem index="9" value="Austria"/>
+                    <StringItem index="10" value="Azerbaijan"/>
+                    <StringItem index="11" value="Bahamas"/>
+                    <StringItem index="12" value="Bahrain"/>
+                    <StringItem index="13" value="Bangladesh"/>
+                    <StringItem index="14" value="Barbados"/>
+                    <StringItem index="15" value="Belarus"/>
+                    <StringItem index="16" value="Belgium"/>
+                    <StringItem index="17" value="Belize"/>
+                    <StringItem index="18" value="Benin"/>
+                    <StringItem index="19" value="Bhutan"/>
+                    <StringItem index="20" value="Bolivia"/>
+                    <StringItem index="21" value="Bosnia Herzegovina"/>
+                    <StringItem index="22" value="Botswana"/>
+                    <StringItem index="23" value="Brazil"/>
+                    <StringItem index="24" value="Brunei"/>
+                    <StringItem index="25" value="Bulgaria"/>
+                    <StringItem index="26" value="Burkina"/>
+                    <StringItem index="27" value="Burundi"/>
+                    <StringItem index="28" value="Cambodia"/>
+                    <StringItem index="29" value="Cameroon"/>
+                    <StringItem index="30" value="Canada"/>
+                    <StringItem index="31" value="Cape Verde"/>
+                    <StringItem index="32" value="Central African Rep"/>
+                    <StringItem index="33" value="Chad"/>
+                    <StringItem index="34" value="Chile"/>
+                    <StringItem index="35" value="China"/>
+                    <StringItem index="36" value="Colombia"/>
+                    <StringItem index="37" value="Comoros"/>
+                    <StringItem index="38" value="Congo"/>
+                    <StringItem index="39" value="Congo {Democratic Rep}"/>
+                    <StringItem index="40" value="Costa Rica"/>
+                    <StringItem index="41" value="Croatia"/>
+                    <StringItem index="42" value="Cuba"/>
+                    <StringItem index="43" value="Cyprus"/>
+                    <StringItem index="44" value="Czech Republic"/>
+                    <StringItem index="45" value="Denmark"/>
+                    <StringItem index="46" value="Djibouti"/>
+                    <StringItem index="47" value="Dominica"/>
+                    <StringItem index="48" value="Dominican Republic"/>
+                    <StringItem index="49" value="East Timor"/>
+                    <StringItem index="50" value="Ecuador"/>
+                    <StringItem index="51" value="Egypt"/>
+                    <StringItem index="52" value="El Salvador"/>
+                    <StringItem index="53" value="Equatorial Guinea"/>
+                    <StringItem index="54" value="Eritrea"/>
+                    <StringItem index="55" value="Estonia"/>
+                    <StringItem index="56" value="Ethiopia"/>
+                    <StringItem index="57" value="Fiji"/>
+                    <StringItem index="58" value="Finland"/>
+                    <StringItem index="59" value="France"/>
+                    <StringItem index="60" value="Gabon"/>
+                    <StringItem index="61" value="Gambia"/>
+                    <StringItem index="62" value="Georgia"/>
+                    <StringItem index="63" value="Germany"/>
+                    <StringItem index="64" value="Ghana"/>
+                    <StringItem index="65" value="Greece"/>
+                    <StringItem index="66" value="Grenada"/>
+                    <StringItem index="67" value="Guatemala"/>
+                    <StringItem index="68" value="Guinea"/>
+                    <StringItem index="69" value="Guinea-Bissau"/>
+                    <StringItem index="70" value="Guyana"/>
+                    <StringItem index="71" value="Haiti"/>
+                    <StringItem index="72" value="Honduras"/>
+                    <StringItem index="73" value="Hungary"/>
+                    <StringItem index="74" value="Iceland"/>
+                    <StringItem index="75" value="India"/>
+                    <StringItem index="76" value="Indonesia"/>
+                    <StringItem index="77" value="Iran"/>
+                    <StringItem index="78" value="Iraq"/>
+                    <StringItem index="79" value="Ireland {Republic}"/>
+                    <StringItem index="80" value="Israel"/>
+                    <StringItem index="81" value="Italy"/>
+                    <StringItem index="82" value="Ivory Coast"/>
+                    <StringItem index="83" value="Jamaica"/>
+                    <StringItem index="84" value="Japan"/>
+                    <StringItem index="85" value="Jordan"/>
+                    <StringItem index="86" value="Kazakhstan"/>
+                    <StringItem index="87" value="Kenya"/>
+                    <StringItem index="88" value="Kiribati"/>
+                    <StringItem index="89" value="Korea North"/>
+                    <StringItem index="90" value="Korea South"/>
+                    <StringItem index="91" value="Kosovo"/>
+                    <StringItem index="92" value="Kuwait"/>
+                    <StringItem index="93" value="Kyrgyzstan"/>
+                    <StringItem index="94" value="Laos"/>
+                    <StringItem index="95" value="Latvia"/>
+                    <StringItem index="96" value="Lebanon"/>
+                    <StringItem index="97" value="Lesotho"/>
+                    <StringItem index="98" value="Liberia"/>
+                    <StringItem index="99" value="Libya"/>
+                    <StringItem index="100" value="Liechtenstein"/>
+                    <StringItem index="101" value="Lithuania"/>
+                    <StringItem index="102" value="Luxembourg"/>
+                    <StringItem index="103" value="Macedonia"/>
+                    <StringItem index="104" value="Madagascar"/>
+                    <StringItem index="105" value="Malawi"/>
+                    <StringItem index="106" value="Malaysia"/>
+                    <StringItem index="107" value="Maldives"/>
+                    <StringItem index="108" value="Mali"/>
+                    <StringItem index="109" value="Malta"/>
+                    <StringItem index="110" value="Marshall Islands"/>
+                    <StringItem index="111" value="Mauritania"/>
+                    <StringItem index="112" value="Mauritius"/>
+                    <StringItem index="113" value="Mexico"/>
+                    <StringItem index="114" value="Micronesia"/>
+                    <StringItem index="115" value="Moldova"/>
+                    <StringItem index="116" value="Monaco"/>
+                    <StringItem index="117" value="Mongolia"/>
+                    <StringItem index="118" value="Montenegro"/>
+                    <StringItem index="119" value="Morocco"/>
+                    <StringItem index="120" value="Mozambique"/>
+                    <StringItem index="121" value="Myanmar"/>
+                    <StringItem index="122" value="{Burma}"/>
+                    <StringItem index="123" value="Namibia"/>
+                    <StringItem index="124" value="Nauru"/>
+                    <StringItem index="125" value="Nepal"/>
+                    <StringItem index="126" value="Netherlands"/>
+                    <StringItem index="127" value="New Zealand"/>
+                    <StringItem index="128" value="Nicaragua"/>
+                    <StringItem index="129" value="Niger"/>
+                    <StringItem index="130" value="Nigeria"/>
+                    <StringItem index="131" value="Norway"/>
+                    <StringItem index="132" value="Oman"/>
+                    <StringItem index="133" value="Pakistan"/>
+                    <StringItem index="134" value="Palau"/>
+                    <StringItem index="135" value="Panama"/>
+                    <StringItem index="136" value="Papua New Guinea"/>
+                    <StringItem index="137" value="Paraguay"/>
+                    <StringItem index="138" value="Peru"/>
+                    <StringItem index="139" value="Philippines"/>
+                    <StringItem index="140" value="Poland"/>
+                    <StringItem index="141" value="Portugal"/>
+                    <StringItem index="142" value="Qatar"/>
+                    <StringItem index="143" value="Romania"/>
+                    <StringItem index="144" value="Russian Federation"/>
+                    <StringItem index="145" value="Rwanda"/>
+                    <StringItem index="146" value="St Kitts &amp; Nevis"/>
+                    <StringItem index="147" value="St Lucia"/>
+                    <StringItem index="148" value="Saint Vincent &amp; the Grenadines"/>
+                    <StringItem index="149" value="Samoa"/>
+                    <StringItem index="150" value="San Marino"/>
+                    <StringItem index="151" value="Sao Tome &amp; Principe"/>
+                    <StringItem index="152" value="Saudi Arabia"/>
+                    <StringItem index="153" value="Senegal"/>
+                    <StringItem index="154" value="Serbia"/>
+                    <StringItem index="155" value="Seychelles"/>
+                    <StringItem index="156" value="Sierra Leone"/>
+                    <StringItem index="157" value="Singapore"/>
+                    <StringItem index="158" value="Slovakia"/>
+                    <StringItem index="159" value="Slovenia"/>
+                    <StringItem index="160" value="Solomon Islands"/>
+                    <StringItem index="161" value="Somalia"/>
+                    <StringItem index="162" value="South Africa"/>
+                    <StringItem index="163" value="South Sudan"/>
+                    <StringItem index="164" value="Spain"/>
+                    <StringItem index="165" value="Sri Lanka"/>
+                    <StringItem index="166" value="Sudan"/>
+                    <StringItem index="167" value="Suriname"/>
+                    <StringItem index="168" value="Swaziland"/>
+                    <StringItem index="169" value="Sweden"/>
+                    <StringItem index="170" value="Switzerland"/>
+                    <StringItem index="171" value="Syria"/>
+                    <StringItem index="172" value="Taiwan"/>
+                    <StringItem index="173" value="Tajikistan"/>
+                    <StringItem index="174" value="Tanzania"/>
+                    <StringItem index="175" value="Thailand"/>
+                    <StringItem index="176" value="Togo"/>
+                    <StringItem index="177" value="Tonga"/>
+                    <StringItem index="178" value="Trinidad &amp; Tobago"/>
+                    <StringItem index="179" value="Tunisia"/>
+                    <StringItem index="180" value="Turkey"/>
+                    <StringItem index="181" value="Turkmenistan"/>
+                    <StringItem index="182" value="Tuvalu"/>
+                    <StringItem index="183" value="Uganda"/>
+                    <StringItem index="184" value="Ukraine"/>
+                    <StringItem index="185" value="United Arab Emirates"/>
+                    <StringItem index="186" value="United Kingdom"/>
+                    <StringItem index="187" value="United States"/>
+                    <StringItem index="188" value="Uruguay"/>
+                    <StringItem index="189" value="Uzbekistan"/>
+                    <StringItem index="190" value="Vanuatu"/>
+                    <StringItem index="191" value="Vatican City"/>
+                    <StringItem index="192" value="Venezuela"/>
+                    <StringItem index="193" value="Vietnam"/>
+                    <StringItem index="194" value="Yemen"/>
+                    <StringItem index="195" value="Zambia"/>
+                    <StringItem index="196" value="Zimbabwe"/>
+                  </StringArray>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="drzavaActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="areaCode">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="2"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="+999"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="areaCodeFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="areaCodeFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="areaCodeActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="areaCodeKeyPressed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="areaCodeKeyTyped"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
