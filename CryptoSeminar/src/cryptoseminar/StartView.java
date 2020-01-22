@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import javax.swing.Timer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 import wf.bitcoin.javabitcoindrpcclient.BitcoinJSONRPCClient;
@@ -57,6 +58,29 @@ public class StartView extends javax.swing.JFrame {
         spajanjeRPC();
         AddActionListener();
         getLastBlock();
+        getUserID();
+    }
+
+    private void getUserID() {
+        RS = CALIzb.main(conn, "select F01ID from users where F01USR = '" + username.trim() + "'");
+        try{
+            while (RS.next()) {
+            userID = RS.getInt("F01ID");      
+        }       
+        }catch(Exception e){
+            e.printStackTrace();
+        }      
+    }
+
+    private void deleteDatabase() {
+        RS = CALIzb.main(conn, "delete from LastSearch where F03USR = '"+String.valueOf(userID).trim()+"'");
+    }
+
+    private void insertDatabase() {
+        deleteDatabase();
+        for(String lst : dataList){
+            RS = CALIzb.main(conn, "insert into LastSearch values ('"+String.valueOf(userID).trim()+"','"+lst.trim()+"');");
+        }
     }
 
     private void getLastBlock() {
@@ -502,8 +526,9 @@ public class StartView extends javax.swing.JFrame {
                     } else {
                         break;
                     }
-                }
-                ispisListe(model);
+                }       
+                insertDatabase();
+                ispisListe(model);               
             }
             //System.out.println("Previous hash: " + myBlock.previousHash());
         } catch (Exception e) {

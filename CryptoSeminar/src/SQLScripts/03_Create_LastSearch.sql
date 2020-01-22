@@ -1,0 +1,7 @@
+CREATE TABLE [dbo].LastSearch(
+	F03ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,  -- ID
+	F03USR int NOT NULL FOREIGN KEY REFERENCES Users(F01ID),    -- Username
+	F03HASH varchar(256) NOT NULL    -- Sifra
+	)
+
+GO
