@@ -97,7 +97,6 @@ public class StartView extends javax.swing.JFrame {
             e.printStackTrace();
         }
         if (dataList != null && !dataList.isEmpty()) {
-            dataList.remove(0);
             ispisListe(model);
         }
     }
@@ -401,6 +400,7 @@ public class StartView extends javax.swing.JFrame {
         depthLabel.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         depthLabel.setText("Block depth");
 
+        depthTextField.setText("1");
         depthTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 depthTextFieldKeyTyped(evt);

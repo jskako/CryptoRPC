@@ -489,6 +489,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="depthTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="1"/>
+              </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="depthTextFieldKeyTyped"/>
               </Events>
