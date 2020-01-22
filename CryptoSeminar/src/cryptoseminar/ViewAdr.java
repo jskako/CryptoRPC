@@ -5,8 +5,10 @@
  */
 package cryptoseminar;
 
+import java.awt.Desktop;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.util.List;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import wf.bitcoin.javabitcoindrpcclient.BitcoinJSONRPCClient;
 
 /**
  *
@@ -28,15 +31,18 @@ public class ViewAdr extends javax.swing.JFrame {
     String height;
     List<String> addrList;
     String rowClicked;
+    BitcoinJSONRPCClient client;
 
-    public ViewAdr(String Hight) throws IOException {
+    public ViewAdr(String Hight, BitcoinJSONRPCClient Client) throws IOException {
         this.height = Hight;
+        this.client = Client;
         initComponents();
         getAdrr();
+        AddActionListener();
     }
 
     private void getAdrr() throws MalformedURLException, IOException {
-        String outStr = new Scanner(new URL("https://blockchain.info/block-height/"+height.trim()+"?format=json").openStream(), "UTF-8").useDelimiter("\\A").next();
+        String outStr = new Scanner(new URL("https://blockchain.info/block-height/" + height.trim() + "?format=json").openStream(), "UTF-8").useDelimiter("\\A").next();
         addrList = new ArrayList<>();
         // json is the String representing the input json
         JSONObject jsonObj = new JSONObject(outStr);
@@ -59,7 +65,7 @@ public class ViewAdr extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) adrTable.getModel();
         ispisListe(model);
     }
-    
+
     private void ispisListe(DefaultTableModel model) {
         for (int i = 0; i < addrList.size(); i++) {
             String index = addrList.get(i);
@@ -67,7 +73,7 @@ public class ViewAdr extends javax.swing.JFrame {
             model.addRow(data);
         }
     }
-    
+
     private void AddActionListener() {
         adrTable.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
             if (!event.getValueIsAdjusting()) {
@@ -82,8 +88,9 @@ public class ViewAdr extends javax.swing.JFrame {
                 System.out.println(rowClicked);
                 if (!rowClicked.trim().equals("")) {
                     try {
-                        //myBlock = client.getBlock(rowClicked);
-
+                        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                            Desktop.getDesktop().browse(new URI("https://www.blockchain.com/btc/address/"+rowClicked.trim()));
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -99,7 +106,7 @@ public class ViewAdr extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         adrTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         adrTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,9 +125,7 @@ public class ViewAdr extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 318, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

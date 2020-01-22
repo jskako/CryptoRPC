@@ -593,7 +593,7 @@ public class StartView extends javax.swing.JFrame {
 
         ViewAdr vadr = null;
         try {
-            vadr = new ViewAdr(heightVar.getText().trim());
+            vadr = new ViewAdr(heightVar.getText().trim(), client);
         } catch (IOException ex) {
             Logger.getLogger(StartView.class.getName()).log(Level.SEVERE, null, ex);
         }
