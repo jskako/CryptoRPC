@@ -1,0 +1,7 @@
+CREATE TABLE [dbo].AddressBook(
+	F04ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,  -- ID
+	F04USR int NOT NULL FOREIGN KEY REFERENCES Users(F01ID),    -- Username
+	F04ADDRESS varchar(256) NOT NULL    -- Sifra
+	)
+
+GO

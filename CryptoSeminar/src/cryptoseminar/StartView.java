@@ -179,6 +179,7 @@ public class StartView extends javax.swing.JFrame {
         markleRoot = new javax.swing.JTextField();
         size = new javax.swing.JTextField();
         version = new javax.swing.JTextField();
+        clearTable = new javax.swing.JButton();
         welcomePane = new javax.swing.JPanel();
         blockchainWelcome = new javax.swing.JLabel();
         exitLabel = new javax.swing.JLabel();
@@ -254,12 +255,21 @@ public class StartView extends javax.swing.JFrame {
 
         jLabel11.setText("Version");
 
+        clearTable.setText("Clear");
+        clearTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout blockExplorerPanelLayout = new javax.swing.GroupLayout(blockExplorerPanel);
         blockExplorerPanel.setLayout(blockExplorerPanelLayout);
         blockExplorerPanelLayout.setHorizontalGroup(
             blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(blockExplorerPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(clearTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -303,7 +313,6 @@ public class StartView extends javax.swing.JFrame {
         );
         blockExplorerPanelLayout.setVerticalGroup(
             blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
             .addGroup(blockExplorerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(blockExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -350,6 +359,10 @@ public class StartView extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(version, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(blockExplorerPanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(clearTable))
         );
 
         welcomePane.setBackground(new java.awt.Color(232, 232, 232));
@@ -412,7 +425,6 @@ public class StartView extends javax.swing.JFrame {
         });
 
         graphButton.setText("Graph");
-        graphButton.setActionCommand("Graph");
         graphButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 graphButtonActionPerformed(evt);
@@ -593,13 +605,17 @@ public class StartView extends javax.swing.JFrame {
 
         ViewAdr vadr = null;
         try {
-            vadr = new ViewAdr(heightVar.getText().trim(), client);
+            vadr = new ViewAdr(heightVar.getText().trim(), client, conn, Integer.toString(userID));
         } catch (IOException ex) {
             Logger.getLogger(StartView.class.getName()).log(Level.SEVERE, null, ex);
         }
         vadr.setLocationRelativeTo(null);
         vadr.setVisible(true);
     }//GEN-LAST:event_listAddrActionPerformed
+
+    private void clearTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearTableActionPerformed
+        dataList.clear();
+    }//GEN-LAST:event_clearTableActionPerformed
 
     private ArrayList punjenjeListe() {
         ArrayList<String> listChart = new ArrayList<String>();
@@ -682,6 +698,7 @@ public class StartView extends javax.swing.JFrame {
     private javax.swing.JLabel blockchainWelcome;
     private javax.swing.JTextField chainwork;
     private javax.swing.JLabel chainworkLabel;
+    private javax.swing.JButton clearTable;
     private javax.swing.JTextField confirmations;
     private javax.swing.JLabel confirmationsLabel;
     private javax.swing.JLabel depthLabel;

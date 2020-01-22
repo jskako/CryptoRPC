@@ -10,9 +10,13 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 import org.json.JSONArray;
@@ -32,10 +36,17 @@ public class ViewAdr extends javax.swing.JFrame {
     List<String> addrList;
     String rowClicked;
     BitcoinJSONRPCClient client;
+    Connection conn;
+    String uID;
+    //Spajanje na bazu
+    ResultSet RS = null;
+    ExecuteScriptsOnDatabase CALIzb = new ExecuteScriptsOnDatabase();
 
-    public ViewAdr(String Hight, BitcoinJSONRPCClient Client) throws IOException {
+    public ViewAdr(String Hight, BitcoinJSONRPCClient Client, Connection Conn, String UID) throws IOException {
         this.height = Hight;
         this.client = Client;
+        this.conn = Conn;
+        this.uID = UID;
         initComponents();
         getAdrr();
         AddActionListener();
@@ -89,7 +100,7 @@ public class ViewAdr extends javax.swing.JFrame {
                 if (!rowClicked.trim().equals("")) {
                     try {
                         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                            Desktop.getDesktop().browse(new URI("https://www.blockchain.com/btc/address/"+rowClicked.trim()));
+                            Desktop.getDesktop().browse(new URI("https://www.blockchain.com/btc/address/" + rowClicked.trim()));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -105,6 +116,8 @@ public class ViewAdr extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         adrTable = new javax.swing.JTable();
+        saveButton = new javax.swing.JButton();
+        addressBook = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -121,26 +134,71 @@ public class ViewAdr extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(adrTable);
 
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+
+        addressBook.setText("Address Book");
+        addressBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressBookActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(addressBook, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addressBook, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+
+        RS = CALIzb.main(conn, "insert into AddressBook values ('" + uID.trim() + "','" + rowClicked.trim() + "');");
+
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void addressBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressBookActionPerformed
+        AddressBook adb=null;
+        try {
+            adb = new AddressBook(conn, uID.trim());
+        } catch (IOException ex) {
+            Logger.getLogger(ViewAdr.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        adb.setLocationRelativeTo(null);
+        adb.setVisible(true);
+    }//GEN-LAST:event_addressBookActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addressBook;
     private javax.swing.JTable adrTable;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }
