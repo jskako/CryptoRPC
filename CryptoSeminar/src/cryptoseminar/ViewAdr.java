@@ -98,13 +98,8 @@ public class ViewAdr extends javax.swing.JFrame {
                 }
                 System.out.println(rowClicked);
                 if (!rowClicked.trim().equals("")) {
-                    try {
-                        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                            Desktop.getDesktop().browse(new URI("https://www.blockchain.com/btc/address/" + rowClicked.trim()));
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+
+                    //nothing
                 }
             }
         });
@@ -118,6 +113,7 @@ public class ViewAdr extends javax.swing.JFrame {
         adrTable = new javax.swing.JTable();
         saveButton = new javax.swing.JButton();
         addressBook = new javax.swing.JButton();
+        view = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -132,6 +128,11 @@ public class ViewAdr extends javax.swing.JFrame {
                 "Address"
             }
         ));
+        adrTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                adrTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(adrTable);
 
         saveButton.setText("Save");
@@ -148,6 +149,13 @@ public class ViewAdr extends javax.swing.JFrame {
             }
         });
 
+        view.setText("View");
+        view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,20 +163,23 @@ public class ViewAdr extends javax.swing.JFrame {
             .addComponent(jScrollPane2)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(addressBook, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addressBook, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addressBook, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addressBook, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -181,7 +192,7 @@ public class ViewAdr extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void addressBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressBookActionPerformed
-        AddressBook adb=null;
+        AddressBook adb = null;
         try {
             adb = new AddressBook(conn, uID.trim());
         } catch (IOException ex) {
@@ -190,6 +201,20 @@ public class ViewAdr extends javax.swing.JFrame {
         adb.setLocationRelativeTo(null);
         adb.setVisible(true);
     }//GEN-LAST:event_addressBookActionPerformed
+
+    private void adrTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adrTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adrTableMouseClicked
+
+    private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
+        try {
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI("https://www.blockchain.com/btc/address/" + rowClicked.trim()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_viewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,5 +225,6 @@ public class ViewAdr extends javax.swing.JFrame {
     private javax.swing.JTable adrTable;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton saveButton;
+    private javax.swing.JButton view;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,6 +12,8 @@ import java.net.URI;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.event.ListSelectionEvent;
 import net.proteanit.sql.DbUtils;
 import wf.bitcoin.javabitcoindrpcclient.BitcoinJSONRPCClient;
@@ -62,13 +64,7 @@ public class AddressBook extends javax.swing.JFrame {
                 }
                 System.out.println(rowClicked);
                 if (!rowClicked.trim().equals("")) {
-                    try {
-                        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                            Desktop.getDesktop().browse(new URI("https://www.blockchain.com/btc/address/" + rowClicked.trim()));
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                    //Akcija
                 }
             }
         });
@@ -80,6 +76,7 @@ public class AddressBook extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         adrTable = new javax.swing.JTable();
+        delete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -96,19 +93,41 @@ public class AddressBook extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(adrTable);
 
+        delete.setText("Delete");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(delete)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        RS = CALIzb.main(conn, "delete from AddressBook where F04ID = '"+rowClicked.trim()+"'");
+        PopError CALError = new PopError();
+        CALError.infoBox("Address deleted!", "Error!");
+        dispose();
+    }//GEN-LAST:event_deleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,6 +135,7 @@ public class AddressBook extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable adrTable;
+    private javax.swing.JButton delete;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

@@ -614,7 +614,8 @@ public class StartView extends javax.swing.JFrame {
     }//GEN-LAST:event_listAddrActionPerformed
 
     private void clearTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearTableActionPerformed
-        dataList.clear();
+        model = (DefaultTableModel) hashTable.getModel();
+        model.setRowCount(0);
     }//GEN-LAST:event_clearTableActionPerformed
 
     private ArrayList punjenjeListe() {
