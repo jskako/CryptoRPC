@@ -9,6 +9,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Connection;
@@ -16,6 +17,8 @@ import java.sql.ResultSet;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 import wf.bitcoin.javabitcoindrpcclient.BitcoinJSONRPCClient;
@@ -588,7 +591,12 @@ public class StartView extends javax.swing.JFrame {
 
     private void listAddrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listAddrActionPerformed
 
-        ViewAdr vadr = new ViewAdr(rowClicked);
+        ViewAdr vadr = null;
+        try {
+            vadr = new ViewAdr(heightVar.getText().trim());
+        } catch (IOException ex) {
+            Logger.getLogger(StartView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         vadr.setLocationRelativeTo(null);
         vadr.setVisible(true);
     }//GEN-LAST:event_listAddrActionPerformed

@@ -11,8 +11,8 @@ import java.net.URL;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.table.DefaultTableModel;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -25,16 +25,19 @@ public class ViewAdr extends javax.swing.JFrame {
     /**
      * Creates new form ViewAdr
      */
-    String Hash;
+    String height;
+    List<String> addrList;
+    String rowClicked;
 
-    public ViewAdr(String hash) {
-        this.Hash = hash;
+    public ViewAdr(String Hight) throws IOException {
+        this.height = Hight;
         initComponents();
+        getAdrr();
     }
 
     private void getAdrr() throws MalformedURLException, IOException {
-        String outStr = new Scanner(new URL("https://blockchain.info/block-height/613974?format=json").openStream(), "UTF-8").useDelimiter("\\A").next();
-        List<String> addrList = new ArrayList<>();
+        String outStr = new Scanner(new URL("https://blockchain.info/block-height/"+height.trim()+"?format=json").openStream(), "UTF-8").useDelimiter("\\A").next();
+        addrList = new ArrayList<>();
         // json is the String representing the input json
         JSONObject jsonObj = new JSONObject(outStr);
         JSONArray blocks = jsonObj.getJSONArray("blocks");
@@ -52,20 +55,53 @@ public class ViewAdr extends javax.swing.JFrame {
                 }
             }
         }
-        addrList.forEach(item -> System.out.println(item));
+        //addrList.forEach(item -> System.out.println(item));
+        DefaultTableModel model = (DefaultTableModel) adrTable.getModel();
+        ispisListe(model);
+    }
+    
+    private void ispisListe(DefaultTableModel model) {
+        for (int i = 0; i < addrList.size(); i++) {
+            String index = addrList.get(i);
+            Object[] data = {index};
+            model.addRow(data);
+        }
+    }
+    
+    private void AddActionListener() {
+        adrTable.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
+            if (!event.getValueIsAdjusting()) {
+                //Get row to int
+                try {
+                    if (adrTable.getValueAt(adrTable.getSelectedRow(), 0).toString() != null) {
+                        rowClicked = adrTable.getValueAt(adrTable.getSelectedRow(), 0).toString();
+                    }
+                } catch (NullPointerException e) {
+                    System.out.println("NULL");
+                }
+                System.out.println(rowClicked);
+                if (!rowClicked.trim().equals("")) {
+                    try {
+                        //myBlock = client.getBlock(rowClicked);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        addrTable = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        adrTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        addrTable.setModel(new javax.swing.table.DefaultTableModel(
+        adrTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -75,61 +111,31 @@ public class ViewAdr extends javax.swing.JFrame {
             new String [] {
                 "Address"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(addrTable);
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        ));
+        jScrollPane2.setViewportView(adrTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101)
-                .addComponent(jButton1)
-                .addGap(0, 175, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 318, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            getAdrr();
-        } catch (IOException ex) {
-            Logger.getLogger(ViewAdr.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable addrTable;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable adrTable;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
