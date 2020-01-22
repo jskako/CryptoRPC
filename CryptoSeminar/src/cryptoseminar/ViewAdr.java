@@ -48,8 +48,10 @@ public class ViewAdr extends javax.swing.JFrame {
         this.conn = Conn;
         this.uID = UID;
         initComponents();
-        getAdrr();
-        AddActionListener();
+        if (!height.trim().equals("")) {
+            getAdrr();
+            AddActionListener();
+        }
     }
 
     private void getAdrr() throws MalformedURLException, IOException {
