@@ -15,7 +15,6 @@ public class CryptoSeminar {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         DatabaseConnection CAL = new DatabaseConnection();
         CAL.main();
     }

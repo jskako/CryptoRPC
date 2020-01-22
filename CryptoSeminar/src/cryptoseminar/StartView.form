@@ -347,11 +347,18 @@
                               <Component id="blockchainWelcome" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="welcomeLabelText" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="passwordChangeButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="welcomeLabelText" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="exitLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="passwordChangeButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="graphButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="exitLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -369,7 +376,10 @@
                                   <Component id="welcomeLabelText" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="passwordChangeButton" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="passwordChangeButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="graphButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           </Group>
                           <Component id="blockchainWelcome" min="-2" max="-2" attributes="0"/>
@@ -450,9 +460,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="heightTextField">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="613866"/>
-              </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="heightTextFieldKeyTyped"/>
               </Events>
@@ -484,6 +491,15 @@
             <Component class="javax.swing.JTextField" name="depthTextField">
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="depthTextFieldKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="graphButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Graph"/>
+                <Property name="actionCommand" type="java.lang.String" value="Graph"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="graphButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

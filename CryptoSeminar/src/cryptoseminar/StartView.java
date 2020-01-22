@@ -48,7 +48,7 @@ public class StartView extends javax.swing.JFrame {
     ArrayList<String> dataList = new ArrayList<String>();
     String rowClicked;
     Block myBlock;
-    
+
     public StartView(Connection Conn, String Username) {
         this.conn = Conn;
         this.username = Username;
@@ -56,8 +56,27 @@ public class StartView extends javax.swing.JFrame {
         postaviUser();
         spajanjeRPC();
         AddActionListener();
+        getLastBlock();
     }
-    
+
+    private void getLastBlock() {
+        try {
+            String sURL = "https://blockchain.info/latestblock"; //just a string
+            // Connect to the URL using java's native library
+            URL url = new URL(sURL);
+            URLConnection request = url.openConnection();
+            request.connect();
+            // Convert to a JSON object to print data
+            JsonParser jp = new JsonParser(); //from gson
+            JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent())); //Convert the input stream to a json element
+            JsonObject rootobj = root.getAsJsonObject(); //May be an array, may be an object. 
+            String hei = rootobj.get("height").getAsString(); //just grab the zipcode
+            heightTextField.setText(hei.trim());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void spajanjeRPC() {
         try {
             connection = "http://" + user + ':' + password + "@" + host + ":" + port + "/";
@@ -67,7 +86,7 @@ public class StartView extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
+
     private void postaviUser() {
         String ime = "";
         String prezime = "";
@@ -83,7 +102,7 @@ public class StartView extends javax.swing.JFrame {
         }
         welcomeLabelText.setText("Welcome " + ime + " " + prezime + "  ( " + username + " )");
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -126,6 +145,7 @@ public class StartView extends javax.swing.JFrame {
         searchButton = new javax.swing.JButton();
         depthLabel = new javax.swing.JLabel();
         depthTextField = new javax.swing.JTextField();
+        graphButton = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
 
@@ -319,7 +339,6 @@ public class StartView extends javax.swing.JFrame {
         blockchainTextLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         blockchainTextLabel.setText("Blockchain Explorer History");
 
-        heightTextField.setText("613866");
         heightTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 heightTextFieldKeyTyped(evt);
@@ -342,6 +361,14 @@ public class StartView extends javax.swing.JFrame {
         depthTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 depthTextFieldKeyTyped(evt);
+            }
+        });
+
+        graphButton.setText("Graph");
+        graphButton.setActionCommand("Graph");
+        graphButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                graphButtonActionPerformed(evt);
             }
         });
 
@@ -370,10 +397,15 @@ public class StartView extends javax.swing.JFrame {
                         .addComponent(blockchainWelcome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(welcomeLabelText)
-                            .addComponent(passwordChangeButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(exitLabel)
+                            .addGroup(welcomePaneLayout.createSequentialGroup()
+                                .addComponent(welcomeLabelText)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(exitLabel))
+                            .addGroup(welcomePaneLayout.createSequentialGroup()
+                                .addComponent(passwordChangeButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(graphButton)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         welcomePaneLayout.setVerticalGroup(
@@ -386,7 +418,9 @@ public class StartView extends javax.swing.JFrame {
                             .addComponent(exitLabel)
                             .addComponent(welcomeLabelText))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(passwordChangeButton)
+                        .addGroup(welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(passwordChangeButton)
+                            .addComponent(graphButton))
                         .addGap(64, 64, 64))
                     .addComponent(blockchainWelcome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -476,7 +510,7 @@ public class StartView extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_searchButtonActionPerformed
-    
+
     private void ispisListe(DefaultTableModel model) {
         for (int i = 0; i < dataList.size(); i++) {
             String index = dataList.get(i);
@@ -492,7 +526,26 @@ public class StartView extends javax.swing.JFrame {
     private void depthTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_depthTextFieldKeyTyped
         ZabraniSlova(evt);
     }//GEN-LAST:event_depthTextFieldKeyTyped
-    
+
+    private void graphButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graphButtonActionPerformed
+
+        chart();
+    }//GEN-LAST:event_graphButtonActionPerformed
+
+    private ArrayList punjenjeListe() {
+        ArrayList<String> listChart = new ArrayList<String>();
+        if (dataList != null && !dataList.isEmpty()) {
+            for (String dl : dataList) {
+                myBlock = client.getBlock(dl);
+                listChart.add(Integer.toString(myBlock.size()));
+            }
+        } else {
+            PopError CALError = new PopError();
+            CALError.infoBox("No informations to show at graph!", "Error!");
+        }
+        return listChart;
+    }
+
     public void ZabraniBrojeve(java.awt.event.KeyEvent evt) {
         char vChar = evt.getKeyChar();
         if ((Character.isDigit(vChar)
@@ -501,7 +554,7 @@ public class StartView extends javax.swing.JFrame {
             evt.consume();
         }
     }
-    
+
     public void ZabraniSlova(java.awt.event.KeyEvent evt) {
         char vChar = evt.getKeyChar();
         if ((!Character.isDigit(vChar)
@@ -510,7 +563,14 @@ public class StartView extends javax.swing.JFrame {
             evt.consume();
         }
     }
-    
+
+    private void chart() {
+        ArrayList<String> listChart = new ArrayList<String>();
+        listChart = punjenjeListe();
+        Chart chart = new Chart("Block size graph", listChart);
+        chart.main(arraypk);
+    }
+
     private void AddActionListener() {
         hashTable.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
             if (!event.getValueIsAdjusting()) {
@@ -560,6 +620,7 @@ public class StartView extends javax.swing.JFrame {
     private javax.swing.JTextField difficulty;
     private javax.swing.JLabel difficultyLabel;
     private javax.swing.JLabel exitLabel;
+    private javax.swing.JButton graphButton;
     private javax.swing.JTextField hash;
     private javax.swing.JLabel hashLabel;
     private javax.swing.JTable hashTable;
