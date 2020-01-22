@@ -188,6 +188,7 @@ public class StartView extends javax.swing.JFrame {
         depthLabel = new javax.swing.JLabel();
         depthTextField = new javax.swing.JTextField();
         graphButton = new javax.swing.JButton();
+        listAddr = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
 
@@ -415,6 +416,13 @@ public class StartView extends javax.swing.JFrame {
             }
         });
 
+        listAddr.setText("List address");
+        listAddr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listAddrActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout welcomePaneLayout = new javax.swing.GroupLayout(welcomePane);
         welcomePane.setLayout(welcomePaneLayout);
         welcomePaneLayout.setHorizontalGroup(
@@ -448,6 +456,8 @@ public class StartView extends javax.swing.JFrame {
                                 .addComponent(passwordChangeButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(graphButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(listAddr)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
@@ -463,7 +473,8 @@ public class StartView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(passwordChangeButton)
-                            .addComponent(graphButton))
+                            .addComponent(graphButton)
+                            .addComponent(listAddr))
                         .addGap(64, 64, 64))
                     .addComponent(blockchainWelcome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -575,6 +586,13 @@ public class StartView extends javax.swing.JFrame {
         chart();
     }//GEN-LAST:event_graphButtonActionPerformed
 
+    private void listAddrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listAddrActionPerformed
+
+        ViewAdr vadr = new ViewAdr(rowClicked);
+        vadr.setLocationRelativeTo(null);
+        vadr.setVisible(true);
+    }//GEN-LAST:event_listAddrActionPerformed
+
     private ArrayList punjenjeListe() {
         ArrayList<String> listChart = new ArrayList<String>();
         if (dataList != null && !dataList.isEmpty()) {
@@ -675,6 +693,7 @@ public class StartView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton listAddr;
     private javax.swing.JTextField markleRoot;
     private javax.swing.JLabel markleRootLabel;
     private javax.swing.JTextField nextHash;
