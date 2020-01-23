@@ -23,10 +23,26 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane2" pref="532" max="32767" attributes="0"/>
+          <Component id="jScrollPane2" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="delete" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="delete" min="-2" pref="174" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="add" min="-2" pref="174" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="qr" min="-2" pref="174" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="addLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="addressText" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="confirm" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -36,7 +52,17 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jScrollPane2" min="-2" pref="513" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="delete" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="delete" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="add" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="qr" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="addressText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="confirm" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -68,6 +94,34 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="add">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="qr">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="QR generator"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="addressText">
+    </Component>
+    <Component class="javax.swing.JButton" name="confirm">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Confirm"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="addLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Address"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

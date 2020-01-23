@@ -356,7 +356,7 @@
                               <Component id="depthTextField" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="searchButton" min="-2" pref="82" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="91" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="blockchainWelcome" min="-2" max="-2" attributes="0"/>
@@ -373,6 +373,8 @@
                                       <Component id="graphButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="listAddr" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="addressBook" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -397,6 +399,7 @@
                                   <Component id="passwordChangeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="graphButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="listAddr" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addressBook" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           </Group>
@@ -528,6 +531,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listAddrActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="addressBook">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Address Book"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addressBookActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

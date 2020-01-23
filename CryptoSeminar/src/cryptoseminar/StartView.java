@@ -193,6 +193,7 @@ public class StartView extends javax.swing.JFrame {
         depthTextField = new javax.swing.JTextField();
         graphButton = new javax.swing.JButton();
         listAddr = new javax.swing.JButton();
+        addressBook = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
 
@@ -438,6 +439,13 @@ public class StartView extends javax.swing.JFrame {
             }
         });
 
+        addressBook.setText("Address Book");
+        addressBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressBookActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout welcomePaneLayout = new javax.swing.GroupLayout(welcomePane);
         welcomePane.setLayout(welcomePaneLayout);
         welcomePaneLayout.setHorizontalGroup(
@@ -458,7 +466,7 @@ public class StartView extends javax.swing.JFrame {
                         .addComponent(depthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(91, Short.MAX_VALUE))
                     .addGroup(welcomePaneLayout.createSequentialGroup()
                         .addComponent(blockchainWelcome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -473,6 +481,8 @@ public class StartView extends javax.swing.JFrame {
                                 .addComponent(graphButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(listAddr)
+                                .addGap(18, 18, 18)
+                                .addComponent(addressBook)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
@@ -489,7 +499,8 @@ public class StartView extends javax.swing.JFrame {
                         .addGroup(welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(passwordChangeButton)
                             .addComponent(graphButton)
-                            .addComponent(listAddr))
+                            .addComponent(listAddr)
+                            .addComponent(addressBook))
                         .addGap(64, 64, 64))
                     .addComponent(blockchainWelcome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -618,6 +629,17 @@ public class StartView extends javax.swing.JFrame {
         model.setRowCount(0);
     }//GEN-LAST:event_clearTableActionPerformed
 
+    private void addressBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressBookActionPerformed
+        AddressBook adb = null;
+        try {
+            adb = new AddressBook(conn, Integer.toString(userID));
+        } catch (IOException ex) {
+            Logger.getLogger(ViewAdr.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        adb.setLocationRelativeTo(null);
+        adb.setVisible(true);
+    }//GEN-LAST:event_addressBookActionPerformed
+
     private ArrayList punjenjeListe() {
         ArrayList<String> listChart = new ArrayList<String>();
         if (dataList != null && !dataList.isEmpty()) {
@@ -692,6 +714,7 @@ public class StartView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addressBook;
     private javax.swing.JTextField bits;
     private javax.swing.JLabel bitsLabel;
     private javax.swing.JPanel blockExplorerPanel;
