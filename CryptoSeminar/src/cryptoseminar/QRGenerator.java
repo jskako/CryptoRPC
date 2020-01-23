@@ -10,13 +10,19 @@ import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
-import java.awt.event.KeyEvent;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.ResultSet;
-
+import java.util.Random;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 /**
  *
  * @author josips
@@ -32,7 +38,7 @@ public class QRGenerator extends javax.swing.JFrame {
     ResultSet RS = null;
     ExecuteScriptsOnDatabase CALIzb = new ExecuteScriptsOnDatabase();
     String address;
-    private static final String QR_CODE_IMAGE_PATH = "./MyQRCode.png";
+    private static String QR_CODE_IMAGE_PATH = "./MyQRCode.png";
 
     public QRGenerator(Connection Conn, String UID, String Address) {
         this.conn = Conn;
@@ -73,7 +79,8 @@ public class QRGenerator extends javax.swing.JFrame {
         amount = new javax.swing.JTextField();
         curLbl = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("QR Generator");
 
         AddressLabel.setText("Address");
 
@@ -112,18 +119,18 @@ public class QRGenerator extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(curLbl)
                         .addGap(18, 18, 18)
-                        .addComponent(generateButton, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
+                        .addComponent(generateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(addrs))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddressLabel)
                     .addComponent(addrs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(amountLabel)
                     .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,9 +145,11 @@ public class QRGenerator extends javax.swing.JFrame {
     private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateButtonActionPerformed
         if (!addrs.getText().trim().equals("") && !amount.getText().trim().equals("")) {
             try {
-                generateQRCodeImage("bitcoin:"+addrs.getText().trim()+"?amount="+amount.getText().trim(), 350, 350, QR_CODE_IMAGE_PATH);
-                PopError CALError = new PopError();
-                CALError.infoBox("QR code generated!", "Success!");
+                stringGenerator();
+                checkIfImgExist();
+                generateQRCodeImage("bitcoin:" + addrs.getText().trim() + "?amount=" + amount.getText().trim(), 350, 350, QR_CODE_IMAGE_PATH);
+                setImageN();
+                //setInv();
             } catch (WriterException e) {
                 System.out.println("Could not generate QR Code, WriterException :: " + e.getMessage());
             } catch (IOException e) {
@@ -158,13 +167,48 @@ public class QRGenerator extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_generateButtonActionPerformed
 
+    public void stringGenerator() {
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+        StringBuilder buffer = new StringBuilder(targetStringLength);
+        for (int i = 0; i < targetStringLength; i++) {
+            int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
+            buffer.append((char) randomLimitedInt);
+        }
+        String generatedString = buffer.toString();
+        QR_CODE_IMAGE_PATH = "./" + generatedString.trim() + ".png";
+        System.out.println("String: " + generatedString);
+    }
+
+    private void checkIfImgExist() {
+        try {
+            Files.deleteIfExists(Paths.get(QR_CODE_IMAGE_PATH));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void setImageN() {
+        JFrame frame = new JFrame("Address: " + addrs.getText().trim());
+        ImageIcon icon = new ImageIcon(QR_CODE_IMAGE_PATH);
+        JLabel label = new JLabel(icon);
+        frame.add(label);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        frame.pack();
+        frame.setVisible(true);    
+    }
+
     private void amountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_amountKeyTyped
 
     }//GEN-LAST:event_amountKeyTyped
 
-    
     public void ZabraniSlova(java.awt.event.KeyEvent evt) {
-        
+
     }
     /**
      * @param args the command line arguments
