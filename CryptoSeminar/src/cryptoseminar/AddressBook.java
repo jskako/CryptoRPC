@@ -29,6 +29,7 @@ public class AddressBook extends javax.swing.JFrame {
     BitcoinJSONRPCClient client;
     Connection conn;
     String uID;
+    String addressClicked;
     //Spajanje na bazu
     ResultSet RS = null;
     ExecuteScriptsOnDatabase CALIzb = new ExecuteScriptsOnDatabase();
@@ -62,6 +63,8 @@ public class AddressBook extends javax.swing.JFrame {
                 try {
                     if (adrTable.getValueAt(adrTable.getSelectedRow(), 0).toString() != null) {
                         rowClicked = adrTable.getValueAt(adrTable.getSelectedRow(), 0).toString();
+                        //addressClicked
+                        addressClicked = adrTable.getValueAt(adrTable.getSelectedRow(), 1).toString();
                     }
                 } catch (NullPointerException e) {
                     System.out.println("NULL");
@@ -117,6 +120,11 @@ public class AddressBook extends javax.swing.JFrame {
         });
 
         qr.setText("QR generator");
+        qr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qrActionPerformed(evt);
+            }
+        });
 
         confirm.setText("Confirm");
         confirm.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +210,12 @@ public class AddressBook extends javax.swing.JFrame {
             CALError.infoBox("Address field is empty!", "Error!");
         }
     }//GEN-LAST:event_confirmActionPerformed
+
+    private void qrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qrActionPerformed
+        QRGenerator qrg = new QRGenerator(conn, uID.trim(), addressClicked.trim());
+        qrg.setLocationRelativeTo(null);
+        qrg.setVisible(true);
+    }//GEN-LAST:event_qrActionPerformed
 
     /**
      * @param args the command line arguments
