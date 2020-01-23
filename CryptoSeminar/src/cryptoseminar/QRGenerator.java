@@ -5,6 +5,15 @@
  */
 package cryptoseminar;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
@@ -17,24 +26,33 @@ public class QRGenerator extends javax.swing.JFrame {
     /**
      * Creates new form QRGenerator
      */
-    
     Connection conn;
     String uID;
     //Spajanje na bazu
     ResultSet RS = null;
     ExecuteScriptsOnDatabase CALIzb = new ExecuteScriptsOnDatabase();
     String address;
-    
+    private static final String QR_CODE_IMAGE_PATH = "./MyQRCode.png";
+
     public QRGenerator(Connection Conn, String UID, String Address) {
         this.conn = Conn;
         this.uID = UID;
-        this.address=Address;
+        this.address = Address;
         initComponents();
         updateAddress();
     }
-    
-    private void updateAddress(){
-        if(!address.trim().equals("")){
+
+    private static void generateQRCodeImage(String text, int width, int height, String filePath)
+            throws WriterException, IOException {
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
+
+        Path path = FileSystems.getDefault().getPath(filePath);
+        MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+    }
+
+    private void updateAddress() {
+        if (!address.trim().equals("")) {
             addrs.setText(address);
         }
     }
@@ -51,12 +69,32 @@ public class QRGenerator extends javax.swing.JFrame {
         addrs = new javax.swing.JTextField();
         AddressLabel = new javax.swing.JLabel();
         generateButton = new javax.swing.JButton();
+        amountLabel = new javax.swing.JLabel();
+        amount = new javax.swing.JTextField();
+        curLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         AddressLabel.setText("Address");
 
         generateButton.setText("GENERATE QR");
+        generateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateButtonActionPerformed(evt);
+            }
+        });
+
+        amountLabel.setText("Amount");
+        amountLabel.setToolTipText("");
+
+        amount.setText("0.005");
+        amount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                amountKeyTyped(evt);
+            }
+        });
+
+        curLbl.setText("$ (USD)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,11 +103,17 @@ public class QRGenerator extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(generateButton, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(AddressLabel)
+                    .addComponent(amountLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(AddressLabel)
+                        .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(curLbl)
                         .addGap(18, 18, 18)
-                        .addComponent(addrs)))
+                        .addComponent(generateButton, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
+                    .addComponent(addrs))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -79,14 +123,49 @@ public class QRGenerator extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddressLabel)
                     .addComponent(addrs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(generateButton)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(amountLabel)
+                    .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(curLbl)
+                    .addComponent(generateButton))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateButtonActionPerformed
+        if (!addrs.getText().trim().equals("") && !amount.getText().trim().equals("")) {
+            try {
+                generateQRCodeImage("bitcoin:"+addrs.getText().trim()+"?amount="+amount.getText().trim(), 350, 350, QR_CODE_IMAGE_PATH);
+                PopError CALError = new PopError();
+                CALError.infoBox("QR code generated!", "Success!");
+            } catch (WriterException e) {
+                System.out.println("Could not generate QR Code, WriterException :: " + e.getMessage());
+            } catch (IOException e) {
+                System.out.println("Could not generate QR Code, IOException :: " + e.getMessage());
+            }
+        } else {
+            if (addrs.getText().trim().equals("")) {
+                PopError CALError = new PopError();
+                CALError.infoBox("Address field cannot be empty!", "Error!");
+            }
+            if (amount.getText().trim().equals("")) {
+                PopError CALError = new PopError();
+                CALError.infoBox("Amount field cannot be empty!", "Error!");
+            }
+        }
+    }//GEN-LAST:event_generateButtonActionPerformed
+
+    private void amountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_amountKeyTyped
+
+    }//GEN-LAST:event_amountKeyTyped
+
+    
+    public void ZabraniSlova(java.awt.event.KeyEvent evt) {
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -94,6 +173,9 @@ public class QRGenerator extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddressLabel;
     private javax.swing.JTextField addrs;
+    private javax.swing.JTextField amount;
+    private javax.swing.JLabel amountLabel;
+    private javax.swing.JLabel curLbl;
     private javax.swing.JButton generateButton;
     // End of variables declaration//GEN-END:variables
 }

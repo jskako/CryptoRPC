@@ -23,15 +23,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="generateButton" pref="380" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="AddressLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="AddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="amountLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="amount" min="-2" pref="85" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="curLbl" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="addrs" max="32767" attributes="0"/>
+                      <Component id="generateButton" pref="179" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="addrs" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -45,9 +52,14 @@
                   <Component id="AddressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="addrs" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="generateButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="138" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="amountLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="amount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="curLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="generateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,6 +75,28 @@
     <Component class="javax.swing.JButton" name="generateButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="GENERATE QR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="generateButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="amountLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Amount"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="amount">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0.005"/>
+      </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="amountKeyTyped"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="curLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="$ (USD)"/>
       </Properties>
     </Component>
   </SubComponents>
